@@ -2,7 +2,7 @@
 
         "name": "Miner Detector",
         "manifest_version": 2,
-        "version": "0.1",
+        "version": "0.2",
         "background": {
             "scripts": [
                 "./src/background.js"

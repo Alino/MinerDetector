@@ -1,13 +1,13 @@
-function detectMiner() {
+var domainBlackList = [
+    'coin-hive.com',
+    'coinhive.com'
+];
+
+function isMinerPresent() {
     var scripts = document.getElementsByTagName('script');
-    for (i = 0; i < scripts.length; i++) {
-        if (scripts[i].src.indexOf('coin-hive.com') > -1)
-            return true;
-    }
+    for (var i = 0; i < scripts.length; i++)
+        for (var d = 0; d < domainBlackList.length; d++)
+            if (scripts[i].src && scripts[i].src.indexOf(domainBlackList[d]) > -1) return true;
     return false;
 }
-
-var isMinerPresent = detectMiner();
-if (isMinerPresent) {
-    chrome.runtime.sendMessage({ action: "showIcon" }, function (response) {});
-}
+if (isMinerPresent()) chrome.runtime.sendMessage({ action: "showIcon" });
