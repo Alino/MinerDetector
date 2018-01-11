@@ -1,6 +1,8 @@
 var domainBlackList = [
     'coin-hive.com',
-    'coinhive.com'
+    'coinhive.com',
+    'cryptoloot.pro',
+    'crypto-loot.com'
 ];
 
 function isMinerPresent() {
